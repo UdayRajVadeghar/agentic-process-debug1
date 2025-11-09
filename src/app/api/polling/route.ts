@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  const { jobId } = await request.json();
+  const { jobId, bearerToken } = await request.json();
 
   //   console.log(jobId);
 
@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+      Authorization: `Bearer ${bearerToken}`,
     },
   });
 
